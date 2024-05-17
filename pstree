@@ -1,0 +1,25 @@
+##pstree: 프로세스 계층 구조를 보여주는 명령어
+
+
+#리눅스에서 최초 프로세스 확인: pstree 명령어를 입력하면 systemd가 최상단에 있다는 것을 확인할 수 있음
+
+[root@localhost ~]# pstree
+
+systemd --- acoounts - daemon ---2*[{accounts-daemon}]
+         |- 2*[agetty]
+         |- containerd ---9*[{containerd}]
+         |- cron
+         |- dbus - daemon
+         |- dockerd ---10 * [{dockerd}] 
+...
+
+
+#macOS에서 최초 프로세스 확인: pstree 명령어를 입력하면 launchd가 최상단에 있음을 확인할 수 있음
+
+_____-Mac-mini:~ minchul$ pstree
+-+= 00001 root /sbin/launchd
+ |--= 00053 root /usr/sbin/syslogd
+ |--= 00054 root /usr/libexex/UserEventAgent (System)
+ |--= 00056 root /usr/libexec/wifiFirwareLoder
+ |--= 00057 root
+...
